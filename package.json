@@ -1,0 +1,14 @@
+{
+  "name": "timeline",
+  "version": "1.0.0",
+  "description": "Maps your timeline with industry timeline",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arvind Ram, Devarajan",
+  "license": "ISC",
+  "dependencies" : {
+    "mongodb": "~2.0"
+  }
+}
