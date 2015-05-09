@@ -3,7 +3,7 @@ function init(Schema, mongoose){
           urls: [String]
       });
 
-      return mongoose.model('topic', schema);
+      return mongoose.model('article', schema);
 }
 
 module.exports.init = init;

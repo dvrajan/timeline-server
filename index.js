@@ -7,6 +7,6 @@ eventStore.saveEvent({
 }, function(err){
   if(!err)
     console.log('success');
-    else
+    else    
     console.log(err);
 });
