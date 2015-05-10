@@ -7,12 +7,13 @@ var mongoose = require('mongoose')
     , Article = require("./models/article").init(Schema, mongoose);
 
 module.exports = {
-      saveEvent: function(data, callback){
+      saveEvent: function(data){
 
         var event = new Event(data);
-
         event.save(function(err){
-            callback(err);
+          if(err){
+            console.log("Error saving event" + err);
+          }
         });
       },
 
@@ -44,5 +45,30 @@ module.exports = {
             console.log("Error saving article" + err);
           }
         })
+      },
+
+      getArticles: function(callback){
+        Article.find(function(err, articles){
+          if(err) {
+            console.log("Error getting articles" + err);
+            return;
+          }
+
+          callback(articles[0]['urls']);
+        });
+      },
+
+      getEvents : function(callback){
+        Event.find({},
+                    'title date url picture description',
+                   {sort:{date: -1}},
+                   function(err, events){
+                     if(err){
+                       console.log("Error getting events" + err)
+                       return;
+                     }
+                     callback(events);
+                   });
       }
+
 };
